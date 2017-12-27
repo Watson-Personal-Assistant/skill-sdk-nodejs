@@ -41,11 +41,9 @@ jspm_packages/
 ####################################################################################
 res/
 actions.js
-manifest.json
 manifest.yml
 push.sh
 runLocal.js
-
 
 ####################################################################################
 # Typescript v1 declaration files
