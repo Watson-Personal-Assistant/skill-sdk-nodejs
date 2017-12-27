@@ -37,6 +37,17 @@ node_modules/
 jspm_packages/
 .idea/
 
+# Files that are for local debug and development - NOT PART OF THE SDK AS NPM LIB!!!
+####################################################################################
+res/
+actions.js
+manifest.json
+manifest.yml
+push.sh
+runLocal.js
+
+
+####################################################################################
 # Typescript v1 declaration files
 typings/
 
