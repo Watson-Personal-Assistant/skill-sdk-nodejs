@@ -1,0 +1,36 @@
+{
+  "name": "skill-sdk-nodejs",
+  "version": "0.0.8",
+  "description": "This is the SDK to be used when developing a skill for Watson Assistant using Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Watson-Personal-Assistant/skill-sdk-nodejs.git"
+  },
+  "keywords": [
+    "watson",
+    "assistant",
+    "skill",
+    "sdk"
+  ],
+  "dependencies": {
+    "express": "^4.12.3",
+    "swagger-express-mw": "^0.7.0",
+    "bluebird": "^3.4.1",
+    "i18next": "^7.0.1",
+    "swagger-tools": "^0.10.1",
+    "i18next-sprintf-postprocessor": "^0.2.2",
+    "watson-developer-cloud": "^2.4.3",
+    "morgan": "^1.8.1",
+    "winston": "^2.3.1"
+  },
+  "author": "Dean Haber <deanhaber@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Watson-Personal-Assistant/skill-sdk-nodejs/issues"
+  },
+  "homepage": "https://github.com/Watson-Personal-Assistant/skill-sdk-nodejs#readme"
+}

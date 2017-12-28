@@ -4,7 +4,6 @@ logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.idea/
 
 # Runtime data
 pids
@@ -36,7 +35,18 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
+.idea/
+.npmignore
 
+# Files that are for local debug and development - NOT PART OF THE SDK AS NPM LIB!!!
+####################################################################################
+res/
+actions.js
+manifest.yml
+push.sh
+runLocal.js
+
+####################################################################################
 # Typescript v1 declaration files
 typings/
 

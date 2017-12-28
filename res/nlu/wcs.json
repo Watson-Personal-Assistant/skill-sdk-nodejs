@@ -1,0 +1,15 @@
+{
+  "workspace": {
+    "en-US": {
+      "name": "your workspace name",
+      "workspace_id": "your workspace id"
+    }
+  },
+  "credentials": {
+    "url": "your wcs url",
+    "version": "your wcs version",
+    "version_date": "your wcs version date",
+    "password": "your wcs password",
+    "username": "your wcs username"
+  }
+}
