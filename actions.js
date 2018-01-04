@@ -46,6 +46,19 @@ let converseCallback = function (result, response, context, err) {
     }
 };
 
+
+let evaluationCallback = function(result, evaluationResponse, context, err) {
+    if(err) {
+        console.error(err);
+    }
+    else {
+        if(!result) {
+            result = ['Nlu engine did not return an output'];
+        }
+        evaluationResponse.send(result[0]);
+    }
+};
+
 // Actions for DEFAULT state
 const stateDefaultActions = handler.createActionsHandler({
 
@@ -58,11 +71,20 @@ const stateDefaultActions = handler.createActionsHandler({
     'hello-world-wcs': (request, response, context) => {
         handler.converse(request, response, context, converseCallback)
     },
+    //post processing after the request evaluation
+    'evaluation': (request, evaluationResponse, context) => {
+        handler.evaluateRequest(request, evaluationResponse, context, evaluationCallback)
+    },
+    'small-talk-get-name': (request, response, context) => {
+        handler.converse(request, response, context, converseCallback)
+    },
+
     'unhandled': (request, response, context) => {
         response.say(handler.t('TRY_AGAIN')).send();
     }
 
 }, 'DEFAULT');
+
 
 module.exports = () => {
     // Register language translations.
