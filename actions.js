@@ -69,16 +69,21 @@ const stateDefaultActions = handler.createActionsHandler({
     //this is an example of an intent using wcs - in order for this to work you need your own wcs workspace and intents
     //and change the intents name with your own
     'hello-world-wcs': (request, response, context) => {
-        handler.converse(request, response, context, converseCallback)
+        handler.converse(request, response, context, converseCallback);
     },
-    //post processing after the request evaluation
+    //pre processing before the request evaluation
     'evaluation': (request, evaluationResponse, context) => {
-        handler.evaluateRequest(request, evaluationResponse, context, evaluationCallback)
+        handler.evaluateRequest(request, evaluationResponse, context, evaluationCallback);
     },
     'small-talk-get-name': (request, response, context) => {
-        handler.converse(request, response, context, converseCallback)
+        handler.converse(request, response, context, converseCallback);
     },
-
+    'small-talk-greetings': (request, response, context) => {
+        handler.converse(request, response, context, converseCallback);
+    },
+    'entities': (request, response, context) => {
+        handler.converse(request, response, context, converseCallback);
+    },
     'unhandled': (request, response, context) => {
         response.say(handler.t('TRY_AGAIN')).send();
     }
