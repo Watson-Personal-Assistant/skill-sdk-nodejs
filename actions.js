@@ -78,6 +78,9 @@ const stateDefaultActions = handler.createActionsHandler({
     'small-talk-get-name': (request, response, context) => {
         handler.converse(request, response, context, converseCallback);
     },
+    'distrupt': (request, response, context) => {
+        handler.converse(request, response, context, converseCallback);
+    },
     'small-talk-greetings': (request, response, context) => {
         handler.converse(request, response, context, converseCallback);
     },
