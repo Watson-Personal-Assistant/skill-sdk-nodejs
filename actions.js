@@ -8,6 +8,9 @@
 // The expertise handler
 const {handler} = require('./');
 
+const evaluation = 'evaluation';
+const entities = 'entities';
+
 // Expertise translations map
 const languageResource = {
     'en-US': {
@@ -72,19 +75,16 @@ const stateDefaultActions = handler.createActionsHandler({
         handler.converse(request, response, context, converseCallback);
     },
     //pre processing before the request evaluation
-    'evaluation': (request, evaluationResponse, context) => {
+    evaluation: (request, evaluationResponse, context) => {
         handler.evaluateRequest(request, evaluationResponse, context, evaluationCallback);
     },
     'small-talk-get-name': (request, response, context) => {
         handler.converse(request, response, context, converseCallback);
     },
-    'distrupt': (request, response, context) => {
-        handler.converse(request, response, context, converseCallback);
-    },
     'small-talk-greetings': (request, response, context) => {
         handler.converse(request, response, context, converseCallback);
     },
-    'entities': (request, response, context) => {
+    entities: (request, response, context) => {
         handler.converse(request, response, context, converseCallback);
     },
     'unhandled': (request, response, context) => {
