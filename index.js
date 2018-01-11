@@ -11,7 +11,7 @@ const {handler} = require('./lib');
 const {server} = require('./lib/server');
 const {factory} = require('./lib/nlu/factory');
 const intentity = require('./lib/nlu/intentity');
-const nlu = require('./nlu/nlu');
+const nlu = require('./lib/nlu/nlu');
 
 
 
