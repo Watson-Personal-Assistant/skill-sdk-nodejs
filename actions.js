@@ -49,7 +49,25 @@ let converseCallback = function (result, response, context, err) {
     }
 };
 
-
+/**
+ * example callback call for the handler.evaluationRequest function.
+ * this callback is called after the nlu evaluation process.
+ *
+ * @param result - response from the nlu engine (could be undefined)
+ * @param evaluationResponse - an evaluationResponse object containing
+ *  {
+ *      response: {
+ *          responseCode - status of the evaluation request
+ *          requestResult - the response of the nlu engine
+ *          intentConfidence - the intentity object which holds the confidence for each intent/entity
+ *          handleUtterance - a boolean which tells WA whether the skill would like to handle this request
+ *          context - the context after the evaluation request
+  *     }
+ *
+ *  }
+ * @param context - context object containing, application, skill and session context
+ * @param err
+ */
 let evaluationCallback = function(result, evaluationResponse, context, err) {
     if(err) {
         console.error(err);
@@ -74,23 +92,17 @@ const stateDefaultActions = handler.createActionsHandler({
     'hello-world-wcs': (request, response, context) => {
         handler.converse(request, response, context, converseCallback);
     },
+    'unhandled': (request, response, context) => {
+        response.say(handler.t('TRY_AGAIN')).send();
+    },
     //pre processing before the request evaluation
     evaluation: (request, evaluationResponse, context) => {
         handler.evaluateRequest(request, evaluationResponse, context, evaluationCallback);
     },
-    'small-talk-get-name': (request, response, context) => {
-        handler.converse(request, response, context, converseCallback);
-    },
-    'small-talk-greetings': (request, response, context) => {
-        handler.converse(request, response, context, converseCallback);
-    },
+    // pre processing for entity based routing
     entities: (request, response, context) => {
         handler.converse(request, response, context, converseCallback);
-    },
-    'unhandled': (request, response, context) => {
-        response.say(handler.t('TRY_AGAIN')).send();
     }
-
 }, 'DEFAULT');
 
 
