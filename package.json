@@ -31,6 +31,7 @@
     "xregexp": "^3.1.1",
     "winston": "^2.3.1",
     "dotenv": "^4.0.0",
+    "swagger-tools": "^0.10.1",
     "watson-developer-cloud": "^2.4.3"
 
   },
