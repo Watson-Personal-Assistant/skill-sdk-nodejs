@@ -10,7 +10,8 @@ process.env.skillSDKResDir = path.dirname(process.argv[1]) + "/res";
 const {handler} = require('./lib');
 const {server} = require('./lib/server');
 const {factory} = require('./lib/nlu/factory');
-
+const intentity = require('./lib/nlu/intentity');
+const nlu = require('./nlu/nlu');
 
 
 
@@ -18,5 +19,7 @@ const {factory} = require('./lib/nlu/factory');
 module.exports = {
     handler: handler,
     server: server,
-    factory: factory
+    factory: factory,
+    intentity: intentity,
+    nlu: nlu
 };
