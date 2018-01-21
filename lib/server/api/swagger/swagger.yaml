@@ -401,7 +401,7 @@ definitions:
       requestResult:
         type: string
         example: "Hello World"
-      intentConfidence:
+      intentities:
         type: object
         required:
           - intents
