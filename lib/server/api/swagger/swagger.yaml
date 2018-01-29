@@ -83,6 +83,26 @@ paths:
           schema:
             $ref: "#/definitions/ConverseResponse"
 
+  /evaluate:
+    x-swagger-router-controller: evaluate-request
+    post:
+      tags: [Evaluate]
+      summary: Evaluate request confidence
+      description: Returns the skill's confidence for this request
+      operationId: post
+      parameters:
+        - name: input
+          in: body
+          description: User query object.
+          required: true
+          schema:
+            $ref: '#/definitions/Evaluate'
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/EvaluationResponse"
+
   /healthcheck:
     x-swagger-router-controller: healthcheck
     get:
@@ -300,4 +320,150 @@ definitions:
               version:
                 type: string
                 example: '1.0'
-          
+
+  Evaluate:
+    description: Request to evaluate an utterance in the skill. The skill is provided with text, context, and user information in order to build a response.
+    required:
+      - id
+      - version
+      - language
+      - text
+      - context
+    properties:
+      id:
+        type: string
+        example: '001'
+        description: id
+      version:
+        type: string
+        example: '1.0'
+        description: version
+      language:
+        type: string
+        example: 'en-US'
+        description: language
+      text:
+        type: string
+        example: 'Hello'
+        description: utterance
+      context:
+        type: object
+        description: context of conversation
+        required:
+          - user
+          - session
+          - application
+        properties:
+          user:
+            type: object
+            required:
+              - id
+            properties:
+              id:
+                type: string
+                example: 'user-001'
+                description: unique id for an end user
+          session:
+            type: object
+            required:
+              - new
+              - attributes
+            properties:
+              id:
+                type: string
+                example: 'string'
+              new:
+                type: boolean
+                example: true
+              attributes:
+                type: object
+                example: {}
+              version:
+                type: string
+                example: '1.0'
+          application:
+            type: object
+            required:
+              - id
+              - attributes
+            properties:
+              id:
+                type: string
+                example: 'app-001'
+              attributes:
+                type: object
+                example: {}
+  EvaluationResponse:
+    properties:
+      responseCode:
+        type: integer
+        example: 200
+      requestResult:
+        type: string
+        example: "Hello World"
+      intentities:
+        type: object
+        required:
+          - intents
+          - entities
+        properties:
+          intents:
+            type: object
+            example: []
+          entities:
+            type: object
+            example: []
+      handleUtterance:
+        type: boolean
+        example: true
+      context:
+         type: object
+         description: context of conversation
+         required:
+           - user
+           - session
+           - application
+         properties:
+           user:
+             type: object
+             required:
+               - id
+             properties:
+               id:
+                 type: string
+                 example: 'user-001'
+                 description: unique id for an end user
+           session:
+             type: object
+             required:
+               - new
+               - attributes
+             properties:
+               id:
+                 type: string
+                 example: 'string'
+               new:
+                 type: boolean
+                 example: true
+               attributes:
+                 type: object
+                 example: {}
+               version:
+                 type: string
+                 example: '1.0'
+           application:
+             type: object
+             required:
+               - id
+               - attributes
+             properties:
+               id:
+                 type: string
+                 example: 'app-001'
+               attributes:
+                 type: object
+                 example: {}
+
+
+
+

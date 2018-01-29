@@ -1,6 +1,6 @@
 {
   "name": "skill-sdk-nodejs",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "This is the SDK to be used when developing a skill for Watson Assistant using Node.js",
   "main": "index.js",
   "scripts": {
@@ -17,16 +17,30 @@
     "sdk"
   ],
   "dependencies": {
+    "async": "2.0.0-rc.6",
     "express": "^4.12.3",
     "swagger-express-mw": "^0.7.0",
     "bluebird": "^3.4.1",
     "i18next": "^7.0.1",
-    "swagger-tools": "^0.10.1",
     "i18next-sprintf-postprocessor": "^0.2.2",
-    "watson-developer-cloud": "^2.4.3",
+    "object-hash": "^1.1.8",
+    "numbered": "^1.0.0",
+    "promise-reflect": "^1.1.0",
     "morgan": "^1.8.1",
-    "winston": "^2.3.1"
+    "cloudant": "^1.7.1",
+    "xregexp": "^3.1.1",
+    "winston": "^2.3.1",
+    "dotenv": "^4.0.0",
+    "swagger-tools": "^0.10.1",
+    "watson-developer-cloud": "^2.4.3"
+
   },
+  "devDependencies": {
+    "mocha": "^3.2.0",
+    "should": "^7.1.0",
+    "supertest": "^1.0.0"
+  },
+
   "author": "Dean Haber <deanhaber@gmail.com>",
   "license": "ISC",
   "bugs": {
