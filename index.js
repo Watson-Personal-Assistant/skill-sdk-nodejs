@@ -12,8 +12,7 @@ const {server} = require('./lib/server');
 const factory = require('./lib/nlu/factory');
 const intentity = require('./lib/nlu/intentity');
 const nlu = require('./lib/nlu/nlu');
-
-
+const logger = require('./lib/logger.js');
 
 // Server is exported for testing purposes
 module.exports = {
@@ -21,5 +20,7 @@ module.exports = {
     server: server,
     factory: factory,
     intentity: intentity,
-    nlu: nlu
+    nlu: nlu,
+    logger: logger
+
 };
