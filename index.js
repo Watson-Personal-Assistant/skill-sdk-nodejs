@@ -12,6 +12,7 @@ const {server} = require('./lib/server');
 const factory = require('./lib/nlu/factory');
 const intentity = require('./lib/nlu/intentity');
 const nlu = require('./lib/nlu/nlu');
+const logger = require('./lib/logger.js');
 
 function init(manifest) {
     factory.getNLUs(manifest).then(updatedManifest => {
@@ -31,5 +32,7 @@ module.exports = {
     server: server,
     init: init,
     intentity: intentity,
-    nlu: nlu
+    nlu: nlu,
+    logger: logger
+
 };

@@ -7,6 +7,7 @@
 
 // Initialize handler
 const {handler} = require('./');
+const {logger} = require('./');
 const manifest = require('./res/assets/manifest.json');
 
 // Expertise configuration
@@ -34,5 +35,6 @@ if(index > -1) {
     });
 }
 
+logger.info("Logger Works");
 // The expertise handler
 require('./actions')();
