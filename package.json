@@ -27,7 +27,6 @@
     "numbered": "^1.0.0",
     "promise-reflect": "^1.1.0",
     "morgan": "^1.8.1",
-    "cloudant": "^1.7.1",
     "xregexp": "^3.1.1",
     "winston": "^2.3.1",
     "dotenv": "^4.0.0",
