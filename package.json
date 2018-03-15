@@ -1,6 +1,6 @@
 {
   "name": "skill-sdk-nodejs",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "This is the SDK to be used when developing a skill for Watson Assistant using Node.js",
   "main": "index.js",
   "scripts": {
@@ -32,7 +32,6 @@
     "dotenv": "^4.0.0",
     "swagger-tools": "^0.10.1",
     "watson-developer-cloud": "^2.4.3"
-
   },
   "devDependencies": {
     "mocha": "^3.2.0",
