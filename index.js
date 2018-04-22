@@ -4,8 +4,7 @@
 
 'use strict';
 const path = require('path');
-
-process.env.skillSDKResDir = path.dirname(process.argv[1]) + "/res";
+process.env.skillSDKResDir = process.cwd() + "/res";
 
 const {handler} = require('./lib');
 const {server} = require('./lib/server');
