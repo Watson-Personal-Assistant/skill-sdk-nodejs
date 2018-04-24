@@ -17,6 +17,7 @@
     "sdk"
   ],
   "dependencies": {
+    "app-root-path": "^2.0.1",
     "async": "2.0.0-rc.6",
     "express": "^4.12.3",
     "swagger-express-mw": "^0.7.0",

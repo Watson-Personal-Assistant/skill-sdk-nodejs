@@ -3,8 +3,8 @@
  */
 
 'use strict';
-const path = require('path');
-process.env.skillSDKResDir = process.cwd() + "/res";
+const appRoot = require('app-root-path');
+process.env.skillSDKResDir = appRoot + "/res";
 
 const {handler} = require('./lib');
 const {server} = require('./lib/server');
