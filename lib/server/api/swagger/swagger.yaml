@@ -9,6 +9,11 @@ consumes:
 # format of the responses to the client (Accepts)
 produces:
   - application/json
+securityDefinitions:
+  api:
+    type: apiKey
+    in: header
+    name: expertiseKey
 paths:
   /manifest:
     x-swagger-router-controller: manifest
@@ -28,6 +33,8 @@ paths:
   /nlu:
     x-swagger-router-controller: nlu
     get:
+      security:
+        - api: []
       tags: [Resources]
       summary: Return natural language understanding resource
       description: Returns natural language undertsaning data for the specified
@@ -66,6 +73,8 @@ paths:
   /converse:
     x-swagger-router-controller: converse
     post:
+      security:
+        - api: []
       tags: [Converse]
       summary: Converse with skill
       description: Returns the skill response to a user query
@@ -86,6 +95,8 @@ paths:
   /evaluate:
     x-swagger-router-controller: evaluate-request
     post:
+      security:
+        - api: []
       tags: [Evaluate]
       summary: Evaluate request confidence
       description: Returns the skill's confidence for this request
