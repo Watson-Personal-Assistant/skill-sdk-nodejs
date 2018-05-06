@@ -1,2 +1,3 @@
 # skill-sdk-nodejs
-Documentation? TBD!
+Documentation:
+https://watson-personal-assistant.github.io/developer/
