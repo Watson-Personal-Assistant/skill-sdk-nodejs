@@ -3,9 +3,8 @@
  */
 
 'use strict';
-const path = require('path');
-
-process.env.skillSDKResDir = path.dirname(process.argv[1]) + "/res";
+const appRoot = require('app-root-path');
+process.env.skillSDKResDir = appRoot + "/res";
 
 const {handler} = require('./lib');
 const {server} = require('./lib/server');
@@ -22,5 +21,4 @@ module.exports = {
     intentity: intentity,
     nlu: nlu,
     logger: logger
-
 };
