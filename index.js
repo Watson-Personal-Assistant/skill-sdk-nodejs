@@ -21,5 +21,4 @@ module.exports = {
     intentity: intentity,
     nlu: nlu,
     logger: logger
-
 };
