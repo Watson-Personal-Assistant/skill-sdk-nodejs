@@ -216,7 +216,7 @@ definitions:
         description: utterance
       retext:
         type: string
-        example: 'Hello'
+        example: 'hello'
         description: retext
       attributes:
         type: object
