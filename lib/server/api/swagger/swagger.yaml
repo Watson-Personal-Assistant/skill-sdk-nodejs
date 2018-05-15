@@ -348,6 +348,10 @@ definitions:
         type: string
         example: 'Hello'
         description: utterance
+      retext:
+        type: string
+        example: 'hello'
+        description: normalized utterance
       context:
         type: object
         description: context of conversation
