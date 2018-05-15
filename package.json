@@ -1,7 +1,7 @@
 {
   "name": "skill-sdk-nodejs",
   "version": "0.0.10",
-  "description": "This is the SDK to be used when developing a skill for Watson Assistant using Node.js",
+  "description": "This is the SDK to be used when developing a skill for Watson Assistant Solustions using Node.js",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
