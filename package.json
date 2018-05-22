@@ -1,6 +1,6 @@
 {
   "name": "skill-sdk-nodejs",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "This is the SDK to be used when developing a skill for Watson Assistant Solustions using Node.js",
   "main": "index.js",
   "scripts": {
