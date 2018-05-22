@@ -102,6 +102,8 @@ paths:
           description: Success
           schema:
             $ref: "#/definitions/EvaluationResponse"
+        "500":
+          description: Internal server error
 
   /healthcheck:
     x-swagger-router-controller: healthcheck
@@ -214,7 +216,7 @@ definitions:
         description: utterance
       retext:
         type: string
-        example: 'Hello'
+        example: 'hello'
         description: retext
       attributes:
         type: object
