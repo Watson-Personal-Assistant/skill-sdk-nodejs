@@ -38,7 +38,6 @@
     "should": "^7.1.0",
     "supertest": "^1.0.0"
   },
-
   "author": "Dean Haber <deanhaber@gmail.com>",
   "license": "ISC",
   "bugs": {
