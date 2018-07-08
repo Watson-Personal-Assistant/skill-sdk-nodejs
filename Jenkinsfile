@@ -1,6 +1,6 @@
 node {
     def branchName = (env.CHANGE_BRANCH == null) ? env.BRANCH_NAME : env.CHANGE_BRANCH
-    def gitURL = 'https://https://github.com/Watson-Personal-Assistant/skill-sdk-nodejs.git'
+    def gitURL = 'https://github.com/Watson-Personal-Assistant/skill-sdk-nodejs.git'
     def skillBoilerPlate = 'Skill-Boilerplate'
 
     stage('Get the code') {
