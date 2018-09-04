@@ -3,7 +3,7 @@ node {
     def gitURL = 'https://github.com/Watson-Personal-Assistant/skill-sdk-nodejs.git'
     def skillBoilerPlate = 'Skill-Boilerplate'
     def dependentRepositories = [
-
+        'CI-Test-Skill'
     ]
 
     stage('Get the code') {
