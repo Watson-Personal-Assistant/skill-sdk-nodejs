@@ -3,7 +3,8 @@ node {
     def gitURL = 'https://github.com/Watson-Personal-Assistant/skill-sdk-nodejs.git'
     def skillBoilerPlate = 'Skill-Boilerplate'
     def dependentRepositories = [
-
+        'CI-Test-Skill',
+        'Weather-Skill'
     ]
 
     stage('Get the code') {
@@ -24,9 +25,9 @@ node {
 
         // Propagating (propagate: true) will make the step UI ugly, so there is a need to return the build instance and work with it
         try {
-            jobBuild = build job: "${skillBoilerPlate}/${branchName}", propagate: false
+            jobBuild = build job: "${skillBoilerPlate}/${branchName}", parameters: [[$class: 'StringParameterValue', name: 'sdkBuildBranch', value: "${branchName}"]], propagate: false
         } catch (Exception e) {
-            jobBuild = build job: "${skillBoilerPlate}/pre-release", propagate: false
+            jobBuild = build job: "${skillBoilerPlate}/pre-release", parameters: [[$class: 'StringParameterValue', name: 'sdkBuildBranch', value: "${branchName}"]], propagate: false
         }
 
         def jobResult = jobBuild.getResult()
@@ -41,28 +42,34 @@ node {
             echo "Build of ${stageName} returned result: ${jobResult}"
         }
     }
+
+    def parallelStages = [failFast: false]
     dependentRepositories.each {folderName ->
-        stage("Build dependent skill - ${folderName}") {
-            def jobBuild
+        parallelStages["Build dependent skill - ${folderName}"] = {
+            stage("Build dependent skill - ${folderName}") {
+                def jobBuild
 
-            // Propagating (propagate: true) will make the step UI ugly, so there is a need to return the build instance and work with it
-            try {
-               jobBuild = build job: "${folderName}/${branchName}", propagate: false
-            } catch (Exception e) {
-               jobBuild = build job: "${folderName}/master", propagate: false
-            }
+                // Propagating (propagate: true) will make the step UI ugly, so there is a need to return the build instance and work with it
+                try {
+                   jobBuild = build job: "${folderName}/${branchName}", parameters: [[$class: 'StringParameterValue', name: 'sdkBuildBranch', value: "${branchName}"]], propagate: false
+                } catch (Exception e) {
+                   jobBuild = build job: "${folderName}/master", parameters: [[$class: 'StringParameterValue', name: 'sdkBuildBranch', value: "${branchName}"]], propagate: false
+                }
 
-            def jobResult = jobBuild.getResult()
-            def stageName = jobBuild.getFullDisplayName()
+                def jobResult = jobBuild.getResult()
+                def stageName = jobBuild.getFullDisplayName()
 
-            // Showing the logs of the build job
-            echo jobBuild.rawBuild.log
+                // Showing the logs of the build job
+                echo jobBuild.rawBuild.log
 
-            if (jobResult != 'SUCCESS') {
-               error("${stageName} failed with result: ${jobResult}")
-            } else {
-               echo "Build of ${stageName} returned result: ${jobResult}"
+                if (jobResult != 'SUCCESS') {
+                   error("${stageName} failed with result: ${jobResult}")
+                } else {
+                   echo "Build of ${stageName} returned result: ${jobResult}"
+                }
             }
         }
     }
+
+    parallel parallelStages
 }
