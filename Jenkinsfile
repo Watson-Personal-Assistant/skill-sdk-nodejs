@@ -20,30 +20,11 @@ node {
     stage('npm test') {
         sh 'npm test'
     }
-    stage('Boilerplate Test') {
-        def jobBuild
 
-        // Propagating (propagate: true) will make the step UI ugly, so there is a need to return the build instance and work with it
-        try {
-            jobBuild = build job: "${skillBoilerPlate}/${branchName}", parameters: [[$class: 'StringParameterValue', name: 'sdkBuildBranch', value: "${branchName}"]], propagate: false
-        } catch (Exception e) {
-            jobBuild = build job: "${skillBoilerPlate}/pre-release", parameters: [[$class: 'StringParameterValue', name: 'sdkBuildBranch', value: "${branchName}"]], propagate: false
-        }
 
-        def jobResult = jobBuild.getResult()
-        def stageName = jobBuild.getFullDisplayName()
-
-        // Showing the logs of the build job
-        echo jobBuild.rawBuild.log
-
-        if (jobResult != 'SUCCESS') {
-            error("${stageName} failed with result: ${jobResult}")
-        } else {
-            echo "Build of ${stageName} returned result: ${jobResult}"
-        }
-    }
-    parallel {
-        dependentRepositories.each {folderName ->
+    def parallelStages = [failFast: false]
+    dependentRepositories.each {folderName ->
+        parallelStages["Build dependent skill - ${folderName}"] = {
             stage("Build dependent skill - ${folderName}") {
                 def jobBuild
 
@@ -68,4 +49,6 @@ node {
             }
         }
     }
+
+    parallel parallelStages
 }
