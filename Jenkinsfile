@@ -25,9 +25,9 @@ node {
 
         // Propagating (propagate: true) will make the step UI ugly, so there is a need to return the build instance and work with it
         try {
-            jobBuild = build job: "${skillBoilerPlate}/${branchName}", [[$class: 'StringParameterValue', name: 'sdkBuildBranch', value: "${branchName}"]], propagate: false
+            jobBuild = build job: "${skillBoilerPlate}/${branchName}", parameters: [[$class: 'StringParameterValue', name: 'sdkBuildBranch', value: "${branchName}"]], propagate: false
         } catch (Exception e) {
-            jobBuild = build job: "${skillBoilerPlate}/pre-release", [[$class: 'StringParameterValue', name: 'sdkBuildBranch', value: "${branchName}"]], propagate: false
+            jobBuild = build job: "${skillBoilerPlate}/pre-release", parameters: [[$class: 'StringParameterValue', name: 'sdkBuildBranch', value: "${branchName}"]], propagate: false
         }
 
         def jobResult = jobBuild.getResult()
@@ -48,9 +48,9 @@ node {
 
             // Propagating (propagate: true) will make the step UI ugly, so there is a need to return the build instance and work with it
             try {
-               jobBuild = build job: "${folderName}/${branchName}", [[$class: 'StringParameterValue', name: 'sdkBuildBranch', value: "${branchName}"]], propagate: false
+               jobBuild = build job: "${folderName}/${branchName}", parameters: [[$class: 'StringParameterValue', name: 'sdkBuildBranch', value: "${branchName}"]], propagate: false
             } catch (Exception e) {
-               jobBuild = build job: "${folderName}/master", [[$class: 'StringParameterValue', name: 'sdkBuildBranch', value: "${branchName}"]], propagate: false
+               jobBuild = build job: "${folderName}/master", parameters: [[$class: 'StringParameterValue', name: 'sdkBuildBranch', value: "${branchName}"]], propagate: false
             }
 
             def jobResult = jobBuild.getResult()
