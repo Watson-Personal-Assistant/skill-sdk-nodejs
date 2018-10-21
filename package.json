@@ -1,10 +1,10 @@
 {
   "name": "skill-sdk-nodejs",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "This is the SDK to be used when developing a skill for Watson Assistant Solutions using Node.js",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/mocha --reporter spec test/**.js"
   },
   "repository": {
     "type": "git",
@@ -38,6 +38,7 @@
   },
   "devDependencies": {
     "mocha": "^3.2.0",
+    "chai": "^3.5.0",
     "should": "^7.1.0",
     "supertest": "^1.0.0"
   },
