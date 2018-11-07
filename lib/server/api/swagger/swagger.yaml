@@ -283,7 +283,7 @@ definitions:
       error:
         type: integer
         example: 200
-      shouldEndSession:
+      deleteSkillSession:
         type: boolean
         example: true
       captureInput:
