@@ -34,7 +34,8 @@
     "swagger-tools": "^0.10.1",
     "watson-developer-cloud": "^3.13.0",
     "winston": "^2.3.1",
-    "xregexp": "^3.1.1"
+    "xregexp": "^3.1.1",
+    "wa-built-in-context": "git+https://d6744fcda2390d6f40e524aa1fc94ce6bb543864:x-oauth-basic@github.ibm.com/ConsumerIoT/ContextValidation.git"
   },
   "devDependencies": {
     "mocha": "^3.2.0",
