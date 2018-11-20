@@ -35,7 +35,7 @@
     "watson-developer-cloud": "^3.13.0",
     "winston": "^2.3.1",
     "xregexp": "^3.1.1",
-    "wa-context-utils": "^1.0.0"
+    "wa-context-utils":"^0.0.2"
   },
   "devDependencies": {
     "mocha": "^3.2.0",
