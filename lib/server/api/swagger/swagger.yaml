@@ -283,7 +283,7 @@ definitions:
       error:
         type: integer
         example: 200
-      shouldEndSession:
+      deleteSkillSession:
         type: boolean
         example: true
       captureInput:
@@ -347,6 +347,10 @@ definitions:
       text:
         type: string
         example: 'Hello'
+        description: utterance
+      retext:
+        type: string
+        example: 'hello'
         description: utterance
       context:
         type: object
