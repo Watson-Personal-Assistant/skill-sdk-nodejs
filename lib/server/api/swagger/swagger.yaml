@@ -210,10 +210,6 @@ definitions:
         type: string
         example: 'en-US'
         description: language
-      tenantID:
-        type: string
-        example: '36 characters long'
-        description: the tenantID in a Multi Tenant Environment
       text:
         type: string
         example: 'Hello'
@@ -348,10 +344,6 @@ definitions:
         type: string
         example: 'en-US'
         description: language
-      tenantID:
-        type: string
-        example: '36 characters long'
-        description: the tenantID in a Multi Tenant Environment
       text:
         type: string
         example: 'Hello'
